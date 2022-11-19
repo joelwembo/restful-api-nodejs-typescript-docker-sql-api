@@ -13,8 +13,7 @@ export const createPostSchema = object({
       required_error: 'task_status is required',
     }),
     tags: any(),
-    subTasks: any(),
-    username: string(),
+    subTasks: any()
   }),
 });
 
@@ -35,8 +34,7 @@ export const updatePostSchema = object({
     description: string(),
     task_status: string(),
     tags: any(),
-    subTasks: any(),
-    username: string(),
+    subTasks: any()
   
   }).partial(),
 });

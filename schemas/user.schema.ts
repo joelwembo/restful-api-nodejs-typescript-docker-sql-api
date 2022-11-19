@@ -1,4 +1,4 @@
-import { number, object, string, TypeOf, z } from 'zod';
+import { object, string, TypeOf, z } from 'zod';
 import { RoleEnumType } from '../models/user.entity';
 
 export const createUserSchema = object({
@@ -10,7 +10,6 @@ export const createUserSchema = object({
       required_error: 'Required field',
     }).email('Required field'),
     username: string(),
-    mobile: number(),
     description: string(),
     password: string({
       required_error: 'Password is required',
@@ -34,7 +33,7 @@ export const loginUserSchema = object({
 
 export type CreateUserInput = Omit<
   TypeOf<typeof createUserSchema>['body'],
-  'passwordConfirm'
+  ''
 >;
 
 export const verifyEmailSchema = object({

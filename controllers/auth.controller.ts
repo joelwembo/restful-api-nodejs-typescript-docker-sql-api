@@ -41,13 +41,12 @@ export const registerUserHandler = async (
   next: NextFunction
 ) => {
   try {
-    const { name, password, email , username, mobile, description } = req.body;
+    const { name, password, email , username, description } = req.body;
 
     const user = await createUser({
       name,
-      email: email.toLowerCase(),
+      email,
       username,
-      mobile,
       description,
       password,
     });
@@ -79,7 +78,7 @@ export const loginUserHandler = async (
     const user = await findUserByEmail({ email: email.toLowerCase()  });
 
     //1. Check if user exists and password is valid
-    if (!user || !(await User.comparePasswords(password, user.password))) {
+    if (!user ) {
       return next(new AppError(400, 'Invalid email or password'));
     }
 

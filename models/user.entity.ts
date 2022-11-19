@@ -2,8 +2,7 @@ import crypto from 'crypto';
 import { Entity, Column, Index, BeforeInsert, OneToMany } from 'typeorm';
 import bcrypt from 'bcryptjs';
 import Model from './model.entity';
-
-import { Post } from './post.entity';
+// import { Post } from './post.entity';
 
 
 export enum RoleEnumType {
@@ -50,14 +49,14 @@ export class User extends Model {
   })
   verificationCode!: string | null;
 
-  @OneToMany(() => Post, (post) => post.user)
-  posts: Post[];
+  // @OneToMany(() => Post, (post) => post.id)
+  // posts: Post[];
 
 
-  @Column({
-    default: 0,
-  })
-  mobile: number;
+  // @Column({
+  //   default: 0,
+  // })
+  // mobile: number;
 
   @Column({
     default: 'I love working with Django and React JS',
@@ -74,12 +73,12 @@ export class User extends Model {
     this.password = await bcrypt.hash(this.password, 12);
   }
 
-  static async comparePasswords(
-    candidatePassword: string,
-    hashedPassword: string
-  ) {
-    return await bcrypt.compare(candidatePassword, hashedPassword);
-  }
+  // static async comparePasswords(
+  //   candidatePassword: string,
+  //   hashedPassword: string
+  // ) {
+  //   return await bcrypt.compare(candidatePassword, hashedPassword);
+  // }
 
   static createVerificationCode() {
     const verificationCode = crypto.randomBytes(32).toString('hex');

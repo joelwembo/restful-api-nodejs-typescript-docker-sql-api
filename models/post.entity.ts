@@ -17,10 +17,10 @@ export class Post extends Model {
   })
   task_status: string;
 
-  @Column({
-    default: 'management',
-  })
-  username: string;
+  // @Column({
+  //   default: 'management',
+  // })
+  // username: string;
 
   @Column({
     default: 'Personal',
