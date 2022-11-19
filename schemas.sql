@@ -20,7 +20,6 @@ ALTER TABLE IF EXISTS public.subTasks
     OWNER to postgres;
 
 
-
 -- Table: public.posts
 
 -- DROP TABLE IF EXISTS public.posts;
