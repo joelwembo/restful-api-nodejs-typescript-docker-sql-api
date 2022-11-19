@@ -1,4 +1,5 @@
-import { object, string, TypeOf } from 'zod';
+import { json } from 'body-parser';
+import { any, object, string, TypeOf } from 'zod';
 
 export const createPostSchema = object({
   body: object({
@@ -9,11 +10,11 @@ export const createPostSchema = object({
       required_error: 'description is required',
     }),
     task_status: string({
-      required_error: 'task_statu is required',
+      required_error: 'task_status is required',
     }),
-    tags: string(),
+    tags: any(),
+    subTasks: any(),
     username: string(),
-    list1: string(),
   }),
 });
 
@@ -33,9 +34,10 @@ export const updatePostSchema = object({
     title: string(),
     description: string(),
     task_status: string(),
-    tags: string(),
+    tags: any(),
+    subTasks: any(),
     username: string(),
-    list1: string()
+  
   }).partial(),
 });
 

@@ -13,17 +13,19 @@ export const getPost = async (postId: string) => {
 };
 
 export const findPosts = async (req: Request) => {
-  const builder = postRepository.createQueryBuilder('post');
+  const builder = postRepository.createQueryBuilder('tasks');
 
+
+  // search by title or description
   if (req.query.search) {
-    builder.where('post.title LIKE :search OR post.description LIKE :search', {
+    builder.where('tasks.title LIKE :search OR tasks.description LIKE :search', {
       search: `%${req.query.search}%`,
     });
   }
 
   if (req.query.sort) {
-    const sortQuery = req.query.sort === '-price' ? 'DESC' : 'ASC';
-    builder.orderBy('post.title', sortQuery);
+    const sortQuery = req.query.sort === '-id' ? 'DESC' : 'ASC';
+    builder.orderBy('tasks.title', sortQuery);
   }
 
   return await builder.getMany();

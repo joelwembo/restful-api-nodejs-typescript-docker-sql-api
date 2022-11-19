@@ -10,12 +10,12 @@ export class Post extends Model {
   subTaskTitle: string;
 
   @Column({
-    default: 'in-progress',
+    default: 'true',
   })
   status: string;
 
   @Column({
-    default: 'management',
+    default: 'joelwembo',
   })
   username: string;
 

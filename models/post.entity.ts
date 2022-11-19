@@ -24,18 +24,16 @@ export class Post extends Model {
 
   @Column({
     default: 'Personal',
+     type: 'json'
   })
   tags: string;
 
-  @Column()
-  list1: string;
-
-  @Column()
-  list2: string;
-
-  @Column()
-  list3: string;
-  user: any;
+  
+  @Column({
+    default: 'Primary Subtask',
+     type: 'json'
+  })
+  subTasks: string;
 }
 
 

@@ -55,6 +55,7 @@ export const getPostHandler = async (
   }
 };
 
+// displaying all the tasks
 export const getPostsHandler = async (
   req: Request,
   res: Response,
@@ -63,11 +64,14 @@ export const getPostsHandler = async (
   try {
     const tasks = await findPosts(req);
 
-    res.status(200).json({
-      status: 'success',
-      tasks,
-      results: tasks.length,
-    });
+    // res.status(200).json({
+    //   status: 'success',
+    //   results: tasks.length,
+    //   tasks,
+      
+    // });
+    res.send(tasks)
+    
   } catch (err: any) {
     next(err);
   }
