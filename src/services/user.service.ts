@@ -5,6 +5,12 @@ import redisClient from '../utils/connectRedis';
 import { AppDataSource } from '../utils/data-source';
 import { signJwt } from '../utils/jwt';
 
+/**
+ * @Author : Joel Otepa Wembo
+ * @Description : Service to laverage typeorm repository functions and libs built-in types
+ * @Date : 11/20/2022
+ */
+
 const userRepository = AppDataSource.getRepository(User);
 
 export const createUser = async (input: DeepPartial<User>) => {

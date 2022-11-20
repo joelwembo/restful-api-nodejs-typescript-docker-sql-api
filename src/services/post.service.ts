@@ -1,8 +1,12 @@
 import { Request } from 'express';
 import { Post } from '../models/post.entity';
 import { AppDataSource } from '../utils/data-source';
-
 const postRepository = AppDataSource.getRepository(Post);
+/**
+ * @Author : Joel Otepa Wembo
+ * @Description : Service to laverage typeorm repository functions and libs built-in types
+ * @Date : 11/20/2022
+ */
 
 export const createPost = async (input: Partial<Post>) => {
   return await postRepository.save(postRepository.create({ ...input }));

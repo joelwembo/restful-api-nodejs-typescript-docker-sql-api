@@ -1,4 +1,3 @@
-require('dotenv').config();
 import express, { NextFunction, Request, Response } from 'express';
 import config from 'config';
 import morgan from 'morgan';
@@ -12,17 +11,21 @@ import postRouter from './routes/post.routes';
 import tagsRouter from './routes/tag.routes';
 import validateEnv from './utils/validateEnv';
 
+/**
+ * @Author : Joel Otepa Wembo
+ * @Description : Node JS and PostgreSQL Backend Rest API Server
+ * @File : The Program will be entry point of our entire sofware, using express to routes to our controllers
+ */
+
+require('dotenv').config();
+
 AppDataSource.initialize()
   .then(async () => {
     validateEnv();
 
     const app = express();
 
-    app.set('view engine', 'pug');
-    app.set('views', `${__dirname}/views`);
-
     app.use(express.json({ limit: '10kb' }));
-
     if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
     app.use(cookieParser());
@@ -34,6 +37,7 @@ AppDataSource.initialize()
       })
     );
 
+    // Rest API Routes
     app.use('/api/auth', authRouter);
     app.use('/api/users', userRouter);
     app.use('/api/tasks', postRouter);
@@ -54,10 +58,11 @@ AppDataSource.initialize()
         });
       }
     );
-
+    
+    // Running the express server
     const port = config.get<number>('port');
     app.listen(port);
 
-    console.log(`Server started on port: ${port}`);
+    console.log(`NodeJS Server started on Port: ${port}`);
   })
   .catch((error) => console.log(error));

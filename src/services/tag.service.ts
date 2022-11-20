@@ -4,6 +4,12 @@ import { AppDataSource } from '../utils/data-source';
 
 const postRepository = AppDataSource.getRepository(Tag);
 
+
+/**
+ * @Author : Joel Otepa Wembo
+ * @Description : Service to laverage typeorm repository functions and libs built-in types
+ * @Date : 11/20/2022
+ */
 export const findTags = async (req: Request) => {
   const builder = postRepository.createQueryBuilder('tag');
 

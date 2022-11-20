@@ -5,6 +5,12 @@ import Model from './model.entity';
 // import { Post } from './post.entity';
 
 
+/**
+ * @Author : Joel Otepa Wembo
+ * @Description : Users Model to define Our Tables and columns
+ * @Date : 11/20/2022
+ */
+
 export enum RoleEnumType {
   USER = 'user',
   ADMIN = 'admin',

@@ -10,7 +10,6 @@ import {
 import AppError from '../utils/appError';
 import redisClient from '../utils/connectRedis';
 import { signJwt, verifyJwt } from '../utils/jwt';
-import { User } from '../models/user.entity';
 
 const cookiesOptions: CookieOptions = {
   httpOnly: true,
