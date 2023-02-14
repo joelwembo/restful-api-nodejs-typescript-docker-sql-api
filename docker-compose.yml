@@ -1,39 +1,22 @@
 version: "3"
 services:
-  postgres:
-    image: postgres
-    container_name: todo_postgre
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    env_file:
-      - ./.env  
-    environment:
-      POSTGRES_USER: postgres                
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-      POSTGRES_PORT: 5432
-    ports:
-      - "5432:5432"
-
-  pgadmin:
-      restart: always
-      image: dpage/pgadmin4
-      container_name: todo-pgadmin
-      depends_on:
-        - postgres
+  nodeserver:
+      build:
+          context: .
+          dockerfile: Dockerfile
       ports:
-        - "5051:80"
-      environment:
-        PGADMIN_DEFAULT_EMAIL: postgres@todo.com
-        PGADMIN_DEFAULT_PASSWORD: abcde@12345   
-
-  redis:
-    image: redis:alpine
-    container_name: redis
-    ports:
-      - '6379:6379'
-    volumes:
-      - redisDB:/data        
-volumes:
-  progresDB:
-  redisDB:
+          - "5000:5000"
+  nodeserver2:
+      build:
+          context: ./myapp
+          dockerfile: ./Dockerfile
+      ports:
+          - "3000:3000"       
+  nginx:
+      container_name: typescript-node-server-ether-20525mds
+      restart: always
+      build:
+          context: ./nginx
+          dockerfile: ./Dockerfile
+      ports:
+            - "80:80"
