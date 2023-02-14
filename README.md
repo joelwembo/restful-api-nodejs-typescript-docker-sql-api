@@ -13,9 +13,22 @@ In this tutorial, you’ll create a Node.js app with a CPU-intensive task that b
 
 # Compilation Steps
 
-1. docker-compose up
-2. npm install
-3. npm start
+1. run the postres database 
+
+docker-compose  -f docker-compose-postgres.yml up 
+
+2. run the first demo server
+
+docker-compose -f ./myapp/docker-compose.yml up
+
+
+2. install prequiste for the second app
+
+npm install
+npm start 
+
+or
+docker-compose up
 
 
 # Database Settings on Env
