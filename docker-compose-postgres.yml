@@ -12,13 +12,15 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
       POSTGRES_PORT: 5432
+      PGDATA: /var/lib/postgresql/data/db
+
     ports:
       - "5432:5432"
 
   pgadmin:
       restart: always
       image: dpage/pgadmin4
-      container_name: todo-pgadmin
+      container_name: app-ether-s20-todo-pgadmin
       depends_on:
         - postgres
       ports:
