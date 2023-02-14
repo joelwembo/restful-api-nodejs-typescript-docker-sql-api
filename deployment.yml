@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: sample-nodejs
+ name: typescript-node-server-ether-20525mds
  labels:
-   app: sample-nodejs
+   app: typescript-node-server-ether-20525mds
 spec:
  selector:
   matchLabels:
-   app: sample-nodejs
+   app: typescript-node-server-ether-20525mds
  template:
   metadata:
    labels:
-    app: sample-nodejs
+    app: typescript-node-server-ether-20525mds
   spec:
    containers:
-   - image: ip_address_of_the_machine:5000/nodejs-api-image:latest
+   - image: ip_address_of_the_machine:5000/typescript-node-server-ether-20525mds:latest
      name: nodejs-api
      imagePullPolicy: Always
      ports:
