@@ -17,10 +17,11 @@ COPY .env ./
 #     apt-get install -y nodejs \
 #     npm 
 # run npm install in our local machine
-RUN npm install -g nodemon && npm install --force
+# RUN npm install -g nodemon 
+RUN npm install --force
 
-RUN set -ex \
- && npm run build
+# RUN set -ex \
+#  && npm run build
 
 # copy the generated modules and all other files to the container
 COPY . .

@@ -34,16 +34,6 @@ services:
         PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: 'False'
         PGADMIN_CONFIG_WTF_CSRF_CHECK_DEFAULT: 'False'
 
-  # redis:
-  #   image: redis:alpine
-  #   container_name: redis
-  #   ports:
-  #     - '6379:6379'
-  #   volumes:
-  #     - redisDB:/data        
-# volumes:
-#   progresDB:
-#   redisDB:
 
 networks:
   web_network:
