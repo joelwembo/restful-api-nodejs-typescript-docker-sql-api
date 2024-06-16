@@ -2,7 +2,7 @@ version: "3"
 services:
   postgres:
     image: postgres
-    container_name: app_ether_todo_postgre
+    container_name: postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data
     env_file:
